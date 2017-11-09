@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ListContacts = (props) => {
+const ListContacts = ({contacts, onDeleteContact}) => {
   return (
     <ol className='contact-list'>
-      {props.contacts.map( (contact) => {
+      {contacts.map( (contact) => {
         return (
           <li key={contact.id} className='contact-list-item'>
             <div className='contact-avatar' style={{
@@ -13,7 +13,7 @@ const ListContacts = (props) => {
               <p>{contact.name}</p>
               <p>{contact.email}</p>
             </div>
-            <button className='contact-remove'>
+            <button onClick={ () => onDeleteContact(contact) } className='contact-remove'>
               Remove
             </button>
           </li>
